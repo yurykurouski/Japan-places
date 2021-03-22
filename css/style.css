@@ -97,12 +97,12 @@ img {
   left: 0;
   width: 100%;
   transition: .2s linear;
-  padding-bottom: 20px;
+  padding-bottom: 15px;
   z-index: 999;
 }
 
 .header-active {
-  background: #0E1D28;
+  background: rgba(14, 29, 40, .9);
 }
 
 .header-wrapper {
