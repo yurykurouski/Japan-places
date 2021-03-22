@@ -1,4 +1,5 @@
 @import url(reset.css);
+@import url(adaptive.css);
 
 /* lato-regular - latin */
 @font-face {
@@ -63,11 +64,13 @@ img {
 .wrapper {
   max-width: 1060px;
   margin: 0 auto;
+  padding: 0 15px;
 }
 
 .wrapper-full {
   max-width: 1262px;
   margin: 0 auto;
+  padding: 0 15px;
 }
 
 .section-title {
@@ -139,9 +142,38 @@ img {
   opacity: .75;
 }
 
-/* header styles end */
+.header-burger {
+  display: none;
+  width: 40px;
+  height: 20px;
+  position: relative;
+}
 
+.burger-line {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  position: absolute;
+  left: 0;
+}
+
+.burger-line-first {
+  top: 0;
+}
+
+.burger-line-second {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.burger-line-third {
+  bottom: 0;
+}
+
+/* header styles end */
 /* intro styles start */
+
 .intro {
   min-height: 100vh;
   background: url(../img/intro-bg.jpg) no-repeat center;
@@ -321,7 +353,8 @@ places-title {
 .places-cards {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-gap: 10px;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
 }
 
 .places-card {
@@ -388,7 +421,6 @@ places-title {
 }
 
 /* places styles end */
-
 /* tours styles start */
 
 .tours {
@@ -398,7 +430,7 @@ places-title {
 .tours-tour {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 0 108px;
+  grid-column-gap: 0 108px;
   align-items: center;
   margin-bottom: 77px;
 }
@@ -447,8 +479,9 @@ places-title {
 
 .top-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 57px;
+  grid-template-columns: repeat(6, 1fr);
+  grid-column-gap: 57px;
+  grid-row-gap: 57px;
 }
 
 .top-card-pic {
@@ -459,6 +492,7 @@ places-title {
 .top-card {
   display: flex;
   flex-direction: column;
+  grid-column: span 2;
 }
 
 .top-card-stats {
@@ -572,14 +606,14 @@ places-title {
   width: 50%;
 }
 
-.footer-menu-title{
+.footer-menu-title {
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
   color: white;
 }
 
-.footer-menu-link{
+.footer-menu-link {
   font-size: 16px;
   line-height: 24px;
   color: white;
@@ -588,8 +622,280 @@ places-title {
 
 .footer-menu-link:hover,
 .footer-menu-link:active,
-.footer-menu-link:focus{
+.footer-menu-link:focus {
   opacity: 0.75;
 }
 
 /* footer styles end */
+/* media start */
+
+@media screen and (max-width: 960px) {
+  .search-form-field {
+    margin-bottom: 25px;
+  }
+
+  .benefits {
+    margin-bottom: 75px;
+  }
+
+  .benefits-card {
+    margin-bottom: 60px;
+  }
+
+  .benefits-cards {
+    padding: 0 15px;
+    grid-column-gap: 35px;
+  }
+
+  .benefits-title {
+    padding: 55px 15px;
+  }
+
+  .benefits-wrap {
+    box-shadow: none;
+  }
+
+  .places-card-size-lg {
+    grid-column: span 6;
+  }
+
+  .places-card-size-sm {
+    grid-column: span 6;
+  }
+
+  .tours-tour {
+    grid-column-gap: 35px;
+  }
+
+  .tour-info {
+    padding-left: 0;
+  }
+
+  .tour-title {
+    margin-bottom: 15px;
+  }
+
+  .tour-descr {
+    margin-bottom: 15px;
+  }
+
+  .top-cards {
+    grid-column-gap: 25px;
+    grid-row-gap: 55px;
+  }
+
+  .top-card {
+    grid-column: span 3;
+  }
+
+  .top-card-pic {
+    margin-bottom: 25px;
+  }
+
+  .footer {
+    padding: 60px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .section-title {
+    margin-bottom: 25px;
+  }
+
+  .section-title:after {
+    width: 78px;
+  }
+
+  .header-burger {
+    display: block;
+  }
+
+  .header-wrapper {
+    padding-top: 28px;
+  }
+
+  .header-nav {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: black;
+    z-index: 10;
+    padding: 75px;
+    transform: translateX(100%);
+    transition: .2s all linear;
+  }
+
+  .header-nav-active {
+    transform: translateX(0);
+  }
+
+  .header-item {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+
+  .header-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .header-link {
+    font-size: 42px;
+    line-height: 48px;
+  }
+
+  .header-nav-close {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 11;
+  }
+
+  .header-nav-close-line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+  }
+
+  .header-nav-close-line:first-child {
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .header-nav-close-line:last-child {
+    transform: translateY(-50%) rotate(-45deg);
+  }
+
+  .intro {
+    padding-top: 125px;
+  }
+
+  .intro-title {
+    font-size: 32px;
+    line-height: 48px;
+  }
+
+  .intro-subtitle {
+    font-size: 16px;
+  }
+
+  .search-form-field {
+    margin-right: 0;
+    width: 100%;
+    padding-bottom: 12px;
+    background: transparent url(../img/svg/cyrcle-icon.svg) no-repeat left 2px;
+  }
+
+  .search-form-field::placeholder {
+    font-size: 16px;
+  }
+
+  .search-form-submit {
+    width: 100%;
+  }
+
+  .benefits {
+    margin-bottom: 36px;
+  }
+
+  .benefits-card {
+    grid-column: span 3;
+    margin-bottom: 40px;
+  }
+
+  .benefits-card-pic {
+    margin-bottom: 20px;
+  }
+
+  .benefits-card-title {
+    margin-bottom: 12px;
+  }
+
+  .benefits-card-desc {
+    margin-bottom: 20px;
+  }
+
+  .places {
+    margin-bottom: 76px;
+  }
+
+  .places-card-picture-size-lg,
+  .places-card-picture-size-sm {
+    height: 230px;
+  }
+
+  .places-view-all {
+    margin-bottom: 25px;
+  }
+
+  .places-caption {
+    margin-bottom: 0;
+  }
+
+  .tours {
+    margin-bottom: 76px;
+  }
+
+  .tour-pic,
+  .tour-info {
+    grid-column: span 2;
+  }
+
+  .tour-pic {
+    margin-bottom: 12px;
+  }
+
+  .tour-pic-mob-first {
+    grid-row-start: -1;
+  }
+
+  .tours-tour {
+    margin-bottom: 50px;
+  }
+
+  .top {
+    margin-bottom: 76px;
+  }
+
+  .top-card {
+    grid-column: span 6;
+  }
+
+  .top-card-stats {
+    max-width: 386px;
+  }
+
+  .top-card-descr {
+    margin-bottom: 15px;
+  }
+
+  .footer-logo {
+    display: none;
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .footer-nav {
+    width: 100%;
+  }
+
+  .footer-menu {
+    width: 60px;
+    margin-bottom: 24px;
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+  .header-nav {
+    padding: 75px 30px;
+  }
+}
+
+/* media end */
