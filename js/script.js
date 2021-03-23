@@ -3,6 +3,7 @@
   const burgerItem = document.querySelector('.burger');
   const menu = document.querySelector('.header-nav');
   const menuCloseItem = document.querySelector('.header-nav-close');
+  const menuLinks = document.querySelectorAll('.header-link');
 
   window.onscroll = () => {
     if (window.pageYOffset > 50) {
@@ -19,6 +20,13 @@
   menuCloseItem.addEventListener('click', () => {
     menu.classList.remove('header-nav-active');
   });
+  if (window.innerWidth <= 767) {
+    menuLinks.forEach(el => {
+      el.addEventListener('click', () => {
+        menu.classList.remove('header-nav-active');
+      });
+    });
+  }
 }());
 
 // Scroll to anchors
